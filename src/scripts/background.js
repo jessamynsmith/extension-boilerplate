@@ -7,6 +7,8 @@ ext.runtime.onMessage.addListener(
       console.log("PERFORM AJAX", request.data);
 
       sendResponse({ action: "saved" });
+    } else if (request.action === "hello") {
+      sendResponse({ action: "goodbye" });
     }
   }
 );

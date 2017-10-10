@@ -1,6 +1,10 @@
 import ext from "./utils/ext";
 import storage from "./utils/storage";
 
+ext.runtime.sendMessage({action: 'hello'}, function(response){
+  console.log("response", response);
+});
+
 var popup = document.getElementById("app");
 storage.get('color', function(resp) {
   var color = resp.color;
@@ -31,7 +35,7 @@ var renderBookmark = (data) => {
   var displayContainer = document.getElementById("display-container")
   if(data) {
     var tmpl = template(data);
-    displayContainer.innerHTML = tmpl;  
+    displayContainer.innerHTML = tmpl;
   } else {
     renderMessage("Sorry, could not extract this page's title and URL")
   }
